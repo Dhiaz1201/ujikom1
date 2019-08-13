@@ -14,6 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::group(['prefix' => 'backend','middleware' =>['Auth','role:superadmin']], function () {
+Route::group(['prefix' => 'backend','middleware' =>['Auth','role:admin']], function () {
     Route::resource('user','UserController');
+    Route::get('/', function () {
+    return "hallo admin";
 });
+});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
