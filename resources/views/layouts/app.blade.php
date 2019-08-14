@@ -48,7 +48,7 @@
                       <a class="nav-link" href="/">menu </a>
                     </li>
                       <li  class="nav-item">
-                      <a class="nav-link" href="/admin/kategori">menu </a>
+                     <a class="nav-link" href="/">menu </a>
                     </li>
                     @endguest
                     </ul>

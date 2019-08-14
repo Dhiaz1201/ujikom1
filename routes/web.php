@@ -15,11 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::group(['prefix' => 'backend','middleware' =>['Auth','role:admin']], function () {
-    Route::resource('user','UserController');
-    Route::get('/', function () {
+    Route::get('/home', function () {
     return "hallo admin";
+    });
+      Route::resource('peminjam', 'PeminjamController');
+Route::resource('user','UserController');
 });
-});
-Auth::routes();
+Auth::routes(['register'=>false]);
 
 Route::get('/home', 'HomeController@index')->name('home');

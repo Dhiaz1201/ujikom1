@@ -33,7 +33,7 @@ class HomeController extends Controller
         return view('home');
     }
     protected function adminDashboard(){
-        return redirect('/admin/home');
+        return redirect('/backend/user');
     }
       protected function memberDashboard(){
         return redirect('home');
