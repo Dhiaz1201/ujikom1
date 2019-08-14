@@ -14,14 +14,14 @@ class PeminjamController extends Controller
      */
     public function index()
     {
-        $peminjam = User::all();
+        $peminjam = Peminjam::all();
         $response = [
             'success'=>true,
             'data'=>$peminjam,
             'massage'=>'berhasil'
         
         ];
-        return response()->json($response,200);
+        return view('backend.peminjam.index',compact('peminjam'));
     }
 
     /**
