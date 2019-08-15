@@ -21,7 +21,8 @@ class UserController extends Controller
             'massage'=>'berhasil'
         
         ];
-        return response()->json($response,200);
+        // return response()->json($response,200);
+        return view('backend.user.index',compact('user'));
     }
 
     /**

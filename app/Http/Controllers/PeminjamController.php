@@ -31,7 +31,7 @@ class PeminjamController extends Controller
      */
     public function create()
     {
-        //
+       return view('backend.peminjam.create');
     }
 
     /**
@@ -97,7 +97,7 @@ class PeminjamController extends Controller
      */
     public function edit($id)
     {
-          $peminjam = User::findOrFail($id);
+          $peminjam = Peminjam::findOrFail($id);
         $response = [
             'success'=>true,
             'data'=>$peminjam,

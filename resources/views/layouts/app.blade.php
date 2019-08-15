@@ -35,10 +35,19 @@
                     <ul class="navbar-nav mr-auto">
                     @role('admin')
                     <li  class="nav-item">
-                      <a class="nav-link" href="/">menu admin</a>
+                      <a class="nav-link" href="/backend/peminjam">Peminjam</a>
                     </li>
                       <li  class="nav-item">
-                      <a class="nav-link" href="/admin/kategori">menu admin</a>
+                      <a class="nav-link" href="/backend/petugas">Petugas</a>
+                    </li>
+                      <li  class="nav-item">
+                      <a class="nav-link" href="/backend/penerbit">Penerbit</a>
+                    </li>
+                      <li  class="nav-item">
+                      <a class="nav-link" href="/backend/kategori">Kategori</a>
+                    </li>
+                    <li  class="nav-item">
+                      <a class="nav-link" href="/backend/user">User</a>
                     </li>
                     @endrole
                     @guest

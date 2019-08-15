@@ -19,7 +19,10 @@ Route::group(['prefix' => 'backend','middleware' =>['auth','role:admin']], funct
     return view("home");
     });
       Route::resource('peminjam', 'PeminjamController');
-Route::resource('user','UserController');
+       Route::resource('petugas', 'PetugasController');
+        Route::resource('penerbit', 'PenerbitController');
+         Route::resource('kategori', 'KategoriController');
+     Route::resource('user','UserController');
 });
 Auth::routes(['register'=>false]);
 

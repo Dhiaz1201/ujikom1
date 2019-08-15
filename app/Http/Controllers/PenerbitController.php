@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Penerbit;
 
 class PenerbitController extends Controller
 {
@@ -13,7 +14,14 @@ class PenerbitController extends Controller
      */
     public function index()
     {
-        //
+         $penerbit = Penerbit::all();
+        $response = [
+            'success'=>true,
+            'data'=>$penerbit,
+            'massage'=>'berhasil'
+        
+        ];
+        return view('backend.penerbit.index',compact('penerbit'));
     }
 
     /**

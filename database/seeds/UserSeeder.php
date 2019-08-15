@@ -18,11 +18,23 @@ class UserSeeder extends Seeder
         $adminRole->display_name = "admin";
         $adminRole->save();
 
+        $memberRole = new Role();
+        $memberRole ->name ="peminjam";
+        $memberRole->display_name = "peminjam";
+        $memberRole->save();
+
         $admin = new User();
         $admin ->name ='admin';
         $admin ->email ='admin@gmail.com';
         $admin ->password =bcrypt('rahasia');
         $admin->save();
         $admin->attachRole($adminRole);
+
+        $member = new User();
+        $member ->name ='peminjam';
+        $member ->email ='peminjam@gmail.com';
+        $member ->password =bcrypt('rahasiapisan');
+        $member->save();
+        $member->attachRole($memberRole);
     }
 }
