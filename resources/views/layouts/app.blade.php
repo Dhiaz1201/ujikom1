@@ -47,6 +47,18 @@
                       <a class="nav-link" href="/backend/kategori">Kategori</a>
                     </li>
                     <li  class="nav-item">
+                      <a class="nav-link" href="/backend/peminjaman">Peminjaman</a>
+                    </li>
+                    <li  class="nav-item">
+                      <a class="nav-link" href="/backend/kartupendaftaran">Kartu Pendaftaran</a>
+                    </li>
+                    <li  class="nav-item">
+                      <a class="nav-link" href="/backend/buku">Buku</a>
+                    </li>
+                    <li  class="nav-item">
+                      <a class="nav-link" href="/backend/detailpinjam">Detail Pinjam</a>
+                    </li>
+                    <li  class="nav-item">
                       <a class="nav-link" href="/backend/user">User</a>
                     </li>
                     @endrole

@@ -21,7 +21,7 @@
                 <tr>
                     <td>{{ $no++ }}</td>
                     <td>{{ $data->name }}</td>
-                     <td>{{ $data->email }}</td>       
+                     <td>{{ $data->email }}</td>        
                     <td><a href="{{ route('user.edit', $data->id) }}" class="btn btn-warning">Edit</a></td>
                     <td><a href="{{ route('user.show', $data->id) }}" class="btn btn-success">Detail Data</a></td>
                     <td><form action="{{ route('user.destroy', $data->id) }}" method="post">

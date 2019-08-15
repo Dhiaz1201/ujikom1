@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Session;
 
 class UserController extends Controller
 {
@@ -15,13 +16,10 @@ class UserController extends Controller
     public function index()
     {
         $user = User::all();
-        $response = [
-            'success'=>true,
-            'data'=>$user,
-            'massage'=>'berhasil'
-        
-        ];
-        // return response()->json($response,200);
+        Session::flash("flash_notification",[
+            "level" => "success",
+            "message" => "berhasil menampilkan"
+        ]);
         return view('backend.user.index',compact('user'));
     }
 
@@ -89,12 +87,10 @@ class UserController extends Controller
     public function edit($id)
     {
          $user = User::find($id);
-        $response = [
-            'success'=>true,
-            'data'=>$user,
-            'massage'=>'berhasil'
-        
-        ];
+        Session::flash("flash_notification",[
+            "level" => "success",
+            "message" => "berhasil menampilkan"
+        ]);
         return response()->json($response,200);
     }
 
@@ -128,11 +124,10 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::findOrFail($id)->delete();
-        $response = [
-            'success'=>true,
-            'data'=>$user,
-            'massage'=>'berhasil'
-        ];
+        Session::flash("flash_notification",[
+            "level" => "success",
+            "message" => "berhasil menampilkan"
+        ]);
         return response()->json($response,200);
 
     }

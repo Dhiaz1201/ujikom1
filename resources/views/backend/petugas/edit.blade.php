@@ -15,7 +15,7 @@
     </div>
      <div class="form-group">
         <label for="">Nama Petugas</label>
-        <input class="form-control" value="{{ $petugas->petugas_nama }}" type="text" name="petugas_naam">
+        <input class="form-control" value="{{ $petugas->petugas_nama }}" type="text" name="petugas_nama">
     </div>
     <div class="form-group">
         <button type="submit" class="btn btn-outline-info">

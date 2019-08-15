@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Penerbit;
+use Session;
 
 class PenerbitController extends Controller
 {
@@ -14,7 +15,7 @@ class PenerbitController extends Controller
      */
     public function index()
     {
-         $penerbit = Penerbit::all();
+        $penerbit = Penerbit::all();
         $response = [
             'success'=>true,
             'data'=>$penerbit,
@@ -31,7 +32,7 @@ class PenerbitController extends Controller
      */
     public function create()
     {
-        //
+         return view('backend.penerbit.create');
     }
 
     /**
@@ -42,7 +43,23 @@ class PenerbitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+            //  $request->validate([
+            //     'penerbit_kode' => 'required|unique:penerbit',
+            //     'penerbit_nama' => 'required'
+            // ]);
+        $penerbit = new Penerbit;
+        $penerbit->penerbit_kode = $request->penerbit_kode;
+        $penerbit->penerbit_nama = $request->penerbit_nama;
+        $penerbit->penerbit_alamat = $request->penerbit_alamat;
+        $penerbit->penerbit_telp = $request->penerbit_telp;
+        $penerbit->save();
+         Session::flash("flash_notification",[
+            "level" => "success",
+            "message" => "berhasil mengedit <b>"
+                        .$penerbit->penerbit_nama."</b>"
+        ]);
+            //6.tampilkan berhasil
+            return redirect()->route('penerbit.index');
     }
 
     /**
@@ -64,7 +81,13 @@ class PenerbitController extends Controller
      */
     public function edit($id)
     {
-        //
+        $penerbit = Penerbit::findOrFail($id);
+        Session::flash("flash_notification",[
+            "level" => "success",
+            "message" => "berhasil mengedit <b>"
+                        .$penerbit->penerbit_nama."</b>"
+        ]);
+        return view('backend.penerbit.edit',compact('penerbit'));
     }
 
     /**
@@ -76,7 +99,18 @@ class PenerbitController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $penerbit = Penerbit::findOrFail($id);
+        $penerbit->penerbit_kode = $request->penerbit_kode;
+        $penerbit->penerbit_nama = $request->penerbit_nama;
+        $penerbit->penerbit_alamat = $request->penerbit_alamat;
+        $penerbit->penerbit_telp = $request->penerbit_telp;
+        $penerbit->save();
+        Session::flash("flash_notification",[
+            "level" => "success",
+            "message" => "berhasil mengedit <b>"
+                        .$penerbit->penerbit_nama."</b>"
+        ]);
+           return redirect()->route('penerbit.index');
     }
 
     /**
@@ -87,6 +121,11 @@ class PenerbitController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $penerbit =Penerbit::destroy($id);
+        Session::flash("flash_notification",[
+            "level" => "success",
+            "message" => "berhasil mengedit"
+        ]);
+            return redirect()->route('penerbit.index');
     }
 }
